@@ -1,1 +1,19 @@
-<iframe frameborder="0" class="wrap_scorm" allowfullscreen="" src="https://iframe-popup-test.azurewebsites.net/" id="iFrameResizer0" style="width: 100%; display: block; overflow: hidden; height: 562px;"></iframe>
+<iframe frameborder="0" class="wrap_scorm" allowfullscreen="" src="https://iframe-popup-test.azurewebsites.net/" id="myIframe" style="display: none; width: 100%"></iframe>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.1/iframeResizer.min.js" integrity="sha512-ngVIPTfUxNHrVs52hA0CaOVwC3/do2W4jUEJIufgZQicmY27iAJAind8BPtK2LoyIGiAFcOkjO18r5dTUNLFAw==" crossorigin="anonymous"></script>
+<script>
+	var iframe = iFrameResize({ 
+		heightCalculationMethod: "bodyOffset",
+		checkOrigin: "false",
+		onInit: function() {
+			console.log("init");
+			console.log(iframe);
+			if (iframe[0]) {
+				console.log("resize");
+				iframe[0].iFrameResizer.resize();
+			}
+			
+			document.getElementById("myIframe").style.display = "block";
+		}
+	}, "#myIframe");
+</script>
